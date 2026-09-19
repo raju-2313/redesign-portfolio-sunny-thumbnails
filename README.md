@@ -12,6 +12,7 @@ A static website with one entry point: `index.html`. No bundler, compilation, np
 - GSAP animations and a scroll-driven exhibition of all 57 thumbnails.
 - Interactive project rail with sequential forward/reverse click navigation.
 - Existing YouTube links, artwork lightbox, keyboard controls, and reduced-motion support.
+- WORKED WITH creator installation before Contact, with 14 linked channel avatars and a header anchor.
 
 ## Tech stack
 
@@ -26,15 +27,18 @@ A static website with one entry point: `index.html`. No bundler, compilation, np
 index.html
 assets\images\thumbnails\          All 57 original JPEG assets
 assets\images\misc\portfolio-owner.png  Header portrait, separate from film thumbnails
+assets\images\creators\           14 verified channel avatars for WORKED WITH
 css\
   site.css                         Original site styles, including legacy responsive rules
   film-carousel.css                Circular film, stage and RESET FILM control
   responsive-sections.css          Mobile/tablet sections, exhibition and rail
   mobile-film.css                  Mobile/tablet hero and two film strips
+  worked-with.css                  Creator installation and header quick links
 js\
   main.js                          Project metadata/rendering, hero intro, exhibition,
                                    ScrollTrigger, rail navigation, lightbox and pointer effects
   components\film-carousel.js      Desktop circle and mobile strips; shared set/reset state
+  components\worked-with.js        Independent seamless creator loop and accessible browsing
   data\thumbnails.js               Generated window.WORK_IMAGES filename manifest
   data\film-sets.js                Derives window.FILM_SETS from rendered project order
 scripts\generate-work-manifest.ps1  Development-only manifest generator
@@ -74,6 +78,7 @@ node --check .\js\data\film-sets.js
 2. `css/film-carousel.css`
 3. `css/responsive-sections.css`
 4. `css/mobile-film.css`
+5. `css/worked-with.css` (scoped creator section and header quick links)
 
 It then loads classic scripts, in order, at the end of the document:
 
@@ -84,8 +89,19 @@ It then loads classic scripts, in order, at the end of the document:
 5. `js/main.js` registers plugins and synchronously builds the exhibition and rail.
 6. `js/data/film-sets.js` reads the rendered project images to create the **28 + 29** film sets.
 7. `js/components/film-carousel.js` consumes both globals and initializes the film.
+8. `js/components/worked-with.js` initializes the independent creator carousel.
 
 Do not reorder these scripts, add `async`, convert them to modules, or split their shared state as part of routine file maintenance. The main script intentionally keeps exhibition and rail logic together. Both film layouts intentionally share one controller, active-set state, reset lock and animation-frame loop.
+
+## WORKED WITH installation
+
+The semantic creator list in `index.html` sits between Selected Work and Contact. It contains the 14 exact channel links; the new header anchor uses the existing native smooth scrolling (instant navigation when reduced motion is requested). Contact and the exhibition/film controllers remain independent.
+
+`css/worked-with.css` reuses the existing color tokens and fonts. `js/components/worked-with.js` measures a complete list, duplicates it outside the accessibility/tab order, and translates the track by exactly one list width with a linear GSAP loop at 24 px/second. ResizeObserver recalculates the loop for responsive sizes. It pauses offscreen, in background tabs, and on mouse hover. The Pause button or keyboard focus switches to a manually scrollable original list; reduced-motion and no-GSAP modes also retain that static list. Resume restores the loop position.
+
+The 14 local JPEGs in `assets/images/creators/` were retrieved from the supplied YouTube URLs after verifying each channel metadata handle. Images use consistent circular frames with initials underneath as a load-failure fallback. To update an avatar, replace only its matching file; do not substitute another person's portrait.
+
+Syntax check: `node --check .\js\components\worked-with.js`. Browser checks should cover the loop seam, exact outbound URLs, pause/resume, keyboard access to all 14 creators, reduced motion, responsive header anchors, and no page-level horizontal overflow.
 
 ## Assets and content
 
