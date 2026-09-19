@@ -1,0 +1,45 @@
+# Dependencies and generated output
+node_modules/
+dist/
+build/
+coverage/
+.cache/
+.vercel/
+
+# Credentials and local environment
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Editor, assistant and operating-system files
+.vscode/
+.idea/
+.copilot/
+.github/extensions/
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Local artifacts
+*.log
+*.tmp
+*.temp
+*.bak
+*.orig
+*.swp
+*~
+*.zip
+/backup/
+/backups/
+/screenshots/
+/recordings/
+/test-results/
+/playwright-report/
+
+# Existing local research and optional npm shortcuts; not production dependencies
+/reference/
+/package.json
+/package-lock.json

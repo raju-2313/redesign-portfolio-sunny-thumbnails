@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sunny Thumbnails — eye-catching YouTube thumbnails and banners by sunny.">
+  <title>sunny — thumbnail designer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Sans:wdth,wght@75..100,400..700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/film-carousel.css">
+  <link rel="stylesheet" href="css/responsive-sections.css">
+  <link rel="stylesheet" href="css/mobile-film.css">
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="cursor" aria-hidden="true"><span>VIEW</span></div>
+
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="Sunny Thumbnails home"><img class="brand-portrait" src="assets/images/misc/portfolio-owner.png" alt="Portfolio owner" width="44" height="44"></a>
+    <p class="header-label">THUMBNAIL DESIGNER<br><span>INDIA / SUNNYTHUMBNAILS</span></p>
+    <a class="header-link magnetic" href="#contact">CONTACT <span>↗</span></a>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="hero-film-stage circular-film-carousel" role="group" aria-label="Thumbnail film installation">
+        <div class="film-group" aria-hidden="true"><canvas class="hero-film"></canvas></div>
+        <span class="film-status" role="status" aria-live="polite"></span>
+        <button class="film-reset" type="button" aria-label="Show next film set">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7a8 8 0 1 0 0 10M20 3v5h-5"/></svg>
+          <span>RESET<br>FILM</span>
+        </button>
+      </div>
+      <div class="hero-content">
+        <div class="hero-intro reveal-up">
+          <p class="eyebrow">01 — OPENING ROOM</p>
+          <p class="hero-note">Eye-catching visuals<br>for the next click.</p>
+        </div>
+        <div class="mobile-film-strip mobile-film-strip--top" aria-hidden="true"><div class="mobile-film-track"></div></div>
+        <div class="hero-title-wrap">
+          <h1 class="hero-title">
+            <span class="greeting">Hi, I'm</span>
+            <span class="name">Sunny<span class="title-mark">.</span></span>
+          </h1>
+          <p class="hero-role">I create <strong id="typewriter"></strong><span class="caret" aria-hidden="true"></span></p>
+        </div>
+        <div class="mobile-film-strip mobile-film-strip--bottom" aria-hidden="true"><div class="mobile-film-track"></div></div>
+        <div class="mobile-film-reset-slot" aria-hidden="true"></div>
+        <div class="hero-footer reveal-up">
+          <p>THUMBNAILS<br>&amp; BANNERS</p>
+          <a class="scroll-cue" href="#work"><span>SCROLL TO EXPLORE</span><b>↓</b></a>
+          <p class="hero-year">SUNNYTHUMBNAILS — ONLINE</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee" aria-label="Services">
+      <div class="marquee-track"><span>THUMBNAIL DESIGN</span><i>✳</i><span>CREATIVE WORK</span><i>✳</i><span>YOUTUBE</span><i>✳</i><span>THUMBNAIL DESIGN</span><i>✳</i><span>CREATIVE WORK</span><i>✳</i><span>YOUTUBE</span><i>✳</i></div>
+    </div>
+
+    <section class="about" id="about">
+      <div class="section-head about-head reveal-up"><p class="eyebrow">02 — THE CREATOR</p><p class="section-caption">A little context</p></div>
+      <div class="about-layout">
+        <h2 class="about-title"><span class="about-line">designing</span><span class="about-line"><em>the click.</em></span></h2>
+        <div class="about-copy reveal-up">
+          <p>Hi, I am Sunny — a thumbnail designer focused on creating bold, attention-grabbing visuals for YouTube.</p>
+          <p>I’m passionate about creating eye-catching thumbnails and banners that help creators present their content with a strong first impression.</p>
+          <div class="about-tags reveal-up"><span>THUMBNAIL DESIGN</span><span>CREATIVE WORK</span><span>YOUTUBE</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="work" id="work">
+      <div class="section-head reveal-up">
+        <p class="eyebrow">03 — SELECTED WORK</p>
+        <p class="section-caption">A digital exhibition<br>of the complete archive</p>
+      </div>
+      <div id="exhibition-list" aria-live="polite"></div>
+    </section>
+
+    <section class="contact" id="contact">
+      <p class="eyebrow reveal-up">04 — LAST ROOM</p>
+      <h2 class="contact-title reveal-up">make something<br><em>worth clicking.</em></h2>
+      <div class="contact-bottom reveal-up">
+        <p>Have a video that needs<br>the right first impression?</p>
+        <div class="socials"><a class="magnetic" href="https://twitter.com/Sunnythumbnails" target="_blank" rel="noreferrer">TWITTER <span>↗</span></a><a class="magnetic" href="https://www.instagram.com/sunnythumbnails/" target="_blank" rel="noreferrer">INSTAGRAM <span>↗</span></a></div>
+      </div>
+    </section>
+  </main>
+  <footer><span>sunny<span class="brand-dot">.</span></span><span>ALL RIGHTS RESERVED</span><a href="#top">BACK TO TOP ↑</a></footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Artwork viewer">
+    <button class="lightbox-close" type="button" aria-label="Close artwork viewer">CLOSE <span>×</span></button>
+    <div class="lightbox-content">
+      <p class="lightbox-label">SELECTED WORK <span id="lightbox-number"></span></p>
+      <div class="lightbox-frame"><img id="lightbox-image" alt=""></div>
+      <p class="lightbox-hint">ESC / CLICK OUTSIDE TO CLOSE</p>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
+  <script src="js/data/thumbnails.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/data/film-sets.js"></script>
+  <script src="js/components/film-carousel.js"></script>
+</body>
+</html>

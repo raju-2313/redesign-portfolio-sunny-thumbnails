@@ -1,0 +1,103 @@
+.hero-film-stage.circular-film-carousel {
+  position: absolute;
+  z-index: 4;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 50%;
+  overflow: hidden;
+  contain: layout paint;
+  isolation: isolate;
+  pointer-events: none;
+  user-select: none;
+}
+.circular-film-carousel .film-group {
+  position: absolute;
+  inset: 0;
+  transform-origin: var(--film-center-x) var(--film-center-y);
+  pointer-events: none;
+  will-change: transform;
+}
+.circular-film-carousel .hero-film {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.circular-film-carousel .film-status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.circular-film-carousel .film-reset {
+  position: absolute;
+  z-index: 3;
+  left: var(--film-center-x);
+  top: var(--film-center-y);
+  width: var(--film-control-size, 104px);
+  height: var(--film-control-size, 104px);
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px;
+  border: 1px solid rgba(218, 224, 187, .38);
+  border-radius: 50%;
+  background: rgba(17, 18, 15, .9);
+  color: #eeeae0;
+  font: 500 10px/1.25 'DM Mono', monospace;
+  letter-spacing: .12em;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: border-color .2s, box-shadow .2s;
+}
+.circular-film-carousel .film-reset svg {
+  width: 25px;
+  height: 25px;
+  fill: none;
+  stroke: #dcf36a;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.circular-film-carousel .film-reset:hover,
+.circular-film-carousel .film-reset:focus-visible {
+  border-color: #d6e786;
+  box-shadow: 0 0 18px rgba(204, 225, 113, .09);
+}
+.circular-film-carousel .film-reset:focus-visible {
+  outline: 2px solid #dcf36a;
+  outline-offset: 5px;
+}
+.circular-film-carousel .film-reset:disabled {
+  cursor: progress;
+}
+@media (max-width: 700px) {
+  .hero-film-stage.circular-film-carousel {
+    right: 0;
+    width: 90%;
+  }
+  .circular-film-carousel .film-reset {
+    gap: 3px;
+    padding: 4px;
+    font-size: 8px;
+    line-height: 1.1;
+    letter-spacing: .07em;
+  }
+  .circular-film-carousel .film-reset svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .circular-film-carousel .film-reset {
+    transition: none;
+  }
+}

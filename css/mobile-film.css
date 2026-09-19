@@ -1,0 +1,126 @@
+.mobile-film-strip,
+.mobile-film-reset-slot {
+  display: none;
+}
+@media (max-width: 1024px) {
+  .hero {
+    height: auto;
+    min-height: calc(100svh - 72px);
+    padding: 24px 5vw 20px;
+  }
+  .hero-content {
+    width: 100%;
+    height: auto;
+    min-height: calc(100svh - 116px);
+    gap: clamp(20px, 3svh, 32px);
+  }
+  .hero-intro {
+    margin: 0;
+    align-items: center;
+    gap: 16px;
+  }
+  .hero-note {
+    font-size: 10px;
+    text-align: right;
+  }
+  .hero-title-wrap {
+    margin: clamp(12px, 2svh, 24px) 0;
+    padding: 0;
+    flex: none;
+  }
+  .hero-title {
+    gap: 12px;
+  }
+  .greeting {
+    font-size: clamp(36px, 9.6vw, 64px);
+  }
+  .name {
+    font-size: clamp(72px, 29vw, 168px);
+    white-space: nowrap;
+  }
+  .title-mark {
+    font-size: clamp(16px, 4vw, 28px);
+  }
+  .hero-role {
+    margin-top: 24px;
+    min-height: 1.5em;
+    font-size: clamp(15px, 3.5vw, 20px);
+    line-height: 1.5;
+  }
+  .mobile-film-strip {
+    display: block;
+    position: relative;
+    flex: none;
+    width: calc(100% + 10vw);
+    margin-inline: -5vw;
+    padding: 7px 0;
+    overflow: hidden;
+    background: #20201d;
+    border-block: 1px solid rgba(225, 220, 207, .34);
+    pointer-events: none;
+    will-change: transform;
+  }
+  .mobile-film-track {
+    display: flex;
+    width: max-content;
+    gap: 6px;
+    will-change: transform;
+  }
+  .mobile-film-track img {
+    display: block;
+    width: clamp(75px, 22vw, 110px);
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    flex: none;
+    border-radius: 4px;
+  }
+  .mobile-film-reset-slot {
+    display: block;
+    flex: none;
+    height: 76px;
+  }
+  .hero-film-stage.circular-film-carousel {
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .circular-film-carousel .film-group {
+    display: none;
+  }
+  .circular-film-carousel .film-reset {
+    gap: 5px;
+    padding: 6px;
+    font-size: 10px;
+    line-height: 1.25;
+  }
+  .circular-film-carousel .film-reset svg {
+    width: 24px;
+    height: 24px;
+  }
+  .hero-footer {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 16px;
+    margin-top: auto;
+    font-size: 9px;
+  }
+  .hero-footer .scroll-cue {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    justify-self: center;
+    min-height: 44px;
+    align-items: center;
+  }
+  .hero-year {
+    display: block;
+    max-width: 140px;
+    text-align: right;
+    overflow-wrap: anywhere;
+  }
+}
+@media (max-width: 1024px) and (prefers-reduced-motion: reduce) {
+  .mobile-film-track,
+  .mobile-film-strip {
+    will-change: auto;
+  }
+}

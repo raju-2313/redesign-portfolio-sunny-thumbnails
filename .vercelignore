@@ -1,0 +1,21 @@
+# Upload only the static website; maintenance files stay in GitHub.
+/*
+!/index.html
+!/assets/
+!/css/
+!/js/
+
+# Never include local credentials, caches or metadata inside allowed folders.
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+*.log
+*.tmp
+*.bak
+.DS_Store
+Thumbs.db
+Desktop.ini
+node_modules/
