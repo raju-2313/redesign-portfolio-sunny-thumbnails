@@ -163,9 +163,9 @@ function typewriter() {
   tick();
 }
 
-if (reduceMotion) typewriter();
+const shouldRunIntroTimeline = !reduceMotion && !isTouch && window.innerWidth > 900;
 
-if (!reduceMotion && !isTouch && window.innerWidth > 900) {
+if (shouldRunIntroTimeline) {
   const intro = gsap.timeline({defaults:{ease:"power3.out"}});
   intro.from(".hero", {opacity:0, duration:.6})
     .from(".site-header > *", {y:-18, opacity:0, duration:.8, stagger:.1}, "-=.45")
@@ -176,6 +176,8 @@ if (!reduceMotion && !isTouch && window.innerWidth > 900) {
     .add(typewriter, "+=.15")
     .from(".hero-footer", {opacity:0, y:15, duration:.8}, "-=.55");
   gsap.utils.toArray(".hero .reveal-up").forEach((element) => gsap.from(element, {y:45, opacity:0, duration:1, ease:"power3.out", scrollTrigger:{trigger:element, start:"top 86%", once:true}}));
+} else {
+  typewriter();
 }
 
 const exhibitionMedia = gsap.matchMedia();
