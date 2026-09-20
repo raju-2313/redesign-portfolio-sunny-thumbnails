@@ -11,18 +11,12 @@ const featuredProjects = [
 const imagePath = (file) => `assets/images/thumbnails/${file}`;
 const featuredFiles = new Set(featuredProjects.map((project) => project.file.toLowerCase()));
 const archiveFiles = (window.WORK_IMAGES || []).filter((file) => !featuredFiles.has(file.toLowerCase()));
-const projects = [
-  ...featuredProjects.map((project) => ({...project, image:imagePath(project.file)})),
-  ...archiveFiles.map((file, index) => ({number:String(index + 5).padStart(2, "0"), file, image:imagePath(file), archive:true}))
-];
-const chapterSize = 8;
-const chapterNames = ["THE WORK", "MORE WORK", "THE ARCHIVE", "SELECTED WORK", "THE COLLECTION", "MORE FROM THE STUDIO", "FINAL ROOM"];
+const selectedProjects = featuredProjects.map((project) => ({ ...project, image: imagePath(project.file) }));
+const moreWorkGrid = document.querySelector("#more-work-grid");
 const exhibitionList = document.querySelector("#exhibition-list");
 
 function projectMarkup(project, index) {
-  const featuredMarkup = project.archive ? `
-    <span class="exhibition-label">THUMBNAIL DESIGN</span>
-  ` : `
+  const featuredMarkup = `
     <span class="exhibition-label">VIDEO TITLE</span>
     <p class="exhibition-value">${project.title}</p>
     <span class="exhibition-label">CREATOR / CHANNEL</span>
@@ -36,7 +30,7 @@ function projectMarkup(project, index) {
       <div class="exhibition-project-number">PROJECT ${project.number}</div>
       <div class="exhibition-artwork">
         <div class="exhibition-frame thumbnail-frame" data-lightbox="${project.image}" data-number="${project.number}" data-cursor="view" role="button" tabindex="0" aria-label="Open Project ${project.number}">
-          <img src="${project.image}" alt="Sunny thumbnail project ${project.number}${project.title ? ` — ${project.title}` : ""}" loading="${project.archive ? "lazy" : "eager"}" decoding="async">
+          <img src="${project.image}" alt="Sunny thumbnail project ${project.number} — ${project.title}" loading="eager" decoding="async">
         </div>
         <div class="exhibition-info">${featuredMarkup}</div>
       </div>
@@ -44,27 +38,24 @@ function projectMarkup(project, index) {
   `;
 }
 
-for (let start = 0; start < projects.length; start += chapterSize) {
-  const chapterProjects = projects.slice(start, start + chapterSize);
-  const chapterNumber = String(Math.floor(start / chapterSize) + 1).padStart(2, "0");
-  const chapterTitle = chapterNames[Math.floor(start / chapterSize)] || "THE ARCHIVE";
+if (exhibitionList) {
   exhibitionList.insertAdjacentHTML("beforeend", `
-    <section class="exhibition-room" data-count="${chapterProjects.length}">
+    <section class="exhibition-room" data-count="${selectedProjects.length}">
       <div class="exhibition-viewport">
         <header class="chapter-header">
-          <p class="eyebrow">${chapterNumber} — ${chapterTitle}</p>
-          <p class="chapter-description">A collection of selected thumbnails.</p>
+          <p class="eyebrow">01 — FEATURED PROJECTS</p>
+          <p class="chapter-description">The strongest pieces in a premium exhibition format.</p>
         </header>
         <div class="exhibition-stage">
           <div class="exhibition-track">
-            ${chapterProjects.map((project, index) => projectMarkup(project, start + index)).join("")}
+            ${selectedProjects.map((project, index) => projectMarkup(project, index)).join("")}
           </div>
         </div>
-        <nav class="chapter-rail" aria-label="${chapterNumber} — ${chapterTitle} project navigation">
-          <p class="chapter-rail-label"><span>${chapterNumber}</span>${chapterTitle}</p>
+        <nav class="chapter-rail" aria-label="Featured project navigation">
+          <p class="chapter-rail-label"><span>01</span>SELECTED WORK</p>
           <div class="chapter-rail-line" aria-hidden="true"></div>
           <div class="chapter-rail-items">
-            ${chapterProjects.map((project, index) => `
+            ${selectedProjects.map((project, index) => `
               <button class="chapter-rail-marker" type="button" data-local-index="${index}" aria-label="Go to project ${project.number}" aria-current="false" title="Go to project ${project.number}">
                 <span class="chapter-rail-number">${project.number}</span>
                 <span class="chapter-rail-preview"><img src="${project.image}" alt="" loading="lazy" decoding="async"></span>
@@ -74,14 +65,21 @@ for (let start = 0; start < projects.length; start += chapterSize) {
           </div>
         </nav>
         <div class="exhibition-status">
-          <span class="chapter-status">${chapterNumber} / ${String(Math.ceil(projects.length / chapterSize)).padStart(2, "0")}</span>
-          <span class="project-status">WORK 01 / ${String(chapterProjects.length).padStart(2, "0")}</span>
+          <span class="chapter-status">01 / 01</span>
+          <span class="project-status">WORK 01 / ${String(selectedProjects.length).padStart(2, "0")}</span>
         </div>
         <div class="exhibition-progress"><span></span></div>
       </div>
     </section>
-    ${start + chapterSize < projects.length ? `<div class="chapter-break" aria-hidden="true"><span>↓</span><p class="eyebrow">${String(Math.floor(start / chapterSize) + 2).padStart(2, "0")} — NEXT ROOM</p></div>` : ""}
   `);
+}
+
+if (moreWorkGrid) {
+  moreWorkGrid.innerHTML = archiveFiles.map((file, index) => `
+    <button class="more-work-item" type="button" data-lightbox="${imagePath(file)}" data-number="${String(index + 1).padStart(2, "0")}" aria-label="Open thumbnail ${String(index + 1).padStart(2, "0")}">
+      <img src="${imagePath(file)}" alt="Sunny thumbnail study ${String(index + 1).padStart(2, "0")}" loading="lazy" decoding="async">
+    </button>
+  `).join("");
 }
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;

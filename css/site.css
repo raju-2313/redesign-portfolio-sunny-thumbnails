@@ -236,6 +236,7 @@ a {
 }
 .work,
 .about,
+.more-work,
 .contact {
   padding: 18vh 4vw 12vh;
 }
@@ -244,8 +245,45 @@ a {
   grid-template-columns: 1fr 1fr;
   margin-bottom: 10vh;
 }
-.work {
+.work,
+.more-work {
   position: relative;
+}
+.more-work-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+.more-work-item {
+  appearance: none;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(38, 37, 33, 0.8);
+  cursor: pointer;
+  padding: 0;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+.more-work-item img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  transition: transform 0.25s ease;
+}
+.more-work-item:hover,
+.more-work-item:focus-visible {
+  border-color: rgba(217, 255, 86, 0.8);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+  transform: translateY(-2px);
+}
+.more-work-item:hover img,
+.more-work-item:focus-visible img {
+  transform: scale(1.02);
+}
+.more-work-item:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 4px;
 }
 .artwork {
   position: relative;
@@ -1115,9 +1153,14 @@ footer > span:first-child {
   }
   .work,
   .about,
-  .contact {
-    padding: 15vh 5vw 10vh;
-  }
+    .more-work,
+    .contact {
+      padding: 15vh 5vw 10vh;
+    }
+    .more-work-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
   .section-head {
     margin-bottom: 8vh;
   }
