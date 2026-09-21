@@ -1,0 +1,148 @@
+/* ── Work Diamond Section ── */
+.work-diamond-section {
+  padding: 14vh 4vw 16vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: visible;
+}
+
+.work-diamond-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  outline: none;
+}
+
+.work-diamond-link:focus-visible .work-diamond {
+  outline: 2px solid var(--accent);
+  outline-offset: 16px;
+  border-radius: 50%;
+}
+
+/* Container for the diamond and text ring */
+.work-diamond {
+  position: relative;
+  width: clamp(260px, 32vw, 420px);
+  height: clamp(260px, 32vw, 420px);
+  perspective: 1000px; /* Crucial for 3D depth */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* The actual 3D grid wrapper */
+.diamond-grid {
+  position: absolute;
+  transform-style: preserve-3d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  height: 100%;
+}
+
+/* Rows inside the diamond */
+.diamond-row {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  transform-style: preserve-3d;
+}
+
+/* Individual thumbnail tile */
+.diamond-tile {
+  width: clamp(60px, 7vw, 90px);
+  aspect-ratio: 16 / 9;
+  border-radius: 4px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+/* Dark overlay on tiles that are rotated away (applied via JS) */
+.diamond-tile::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: black;
+  opacity: var(--shade, 0);
+  border-radius: inherit;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+/* Hover effects */
+.work-diamond-link:hover .diamond-tile {
+  /* Subtle interaction on the whole structure */
+  box-shadow: 0 8px 24px rgba(217, 255, 86, 0.1);
+}
+
+.diamond-tile:hover {
+  /* Bring the specific hovered tile forward */
+  transform: var(--base-transform) translateZ(30px) !important;
+  box-shadow: 0 12px 32px rgba(217, 255, 86, 0.3) !important;
+  z-index: 10;
+}
+
+.diamond-tile:hover::after {
+  opacity: 0 !important;
+}
+
+/* SVG text ring — overlays the 3D diamond, spins flatly */
+.diamond-text-ring {
+  position: absolute;
+  inset: -12%;
+  width: 124%;
+  height: 124%;
+  pointer-events: none;
+  animation: text-ring-spin 28s linear infinite;
+  z-index: 5;
+}
+
+@keyframes text-ring-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 700px) {
+  .work-diamond-section {
+    padding: 10vh 5vw 12vh;
+  }
+
+  .work-diamond {
+    width: clamp(200px, 60vw, 300px);
+    height: clamp(200px, 60vw, 300px);
+  }
+
+  .diamond-grid {
+    gap: 8px;
+  }
+
+  .diamond-row {
+    gap: 8px;
+  }
+
+  .diamond-tile {
+    width: clamp(55px, 15vw, 85px);
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .diamond-text-ring {
+    animation: none;
+  }
+}

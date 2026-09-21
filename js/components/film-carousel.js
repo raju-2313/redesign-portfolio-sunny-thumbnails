@@ -35,8 +35,16 @@
   let transition = null;
   const speed = 26;
   const entries = new Map(frames.map((entry) => [entry.file, entry]));
-  const activeFrames = () =>
-    filmSets[activeSetIndex].images.map((file) => entries.get(file));
+  const activeFrames = () => {
+    const baseFrames = filmSets[activeSetIndex].images.map((file) => entries.get(file));
+    if (!geometry || !geometry.circumference || !geometry.pitch) return baseFrames;
+    const minNeeded = Math.ceil(geometry.circumference / geometry.pitch);
+    const result = [...baseFrames];
+    while (result.length < minNeeded) {
+      result.push(...baseFrames);
+    }
+    return result;
+  };
   const tapeLength = () => activeFrames().length * geometry.pitch;
   let inView = false;
   let animationFrame = 0;

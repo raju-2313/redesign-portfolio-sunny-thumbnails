@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="css/responsive-sections.css">
   <link rel="stylesheet" href="css/mobile-film.css">
   <link rel="stylesheet" href="css/worked-with.css">
+  <link rel="stylesheet" href="css/work-diamond.css">
 </head>
 <body>
   <div class="noise" aria-hidden="true"></div>
@@ -20,7 +21,7 @@
 
   <header class="site-header">
     <a class="brand" href="#" aria-label="Sunny Thumbnails home"><img class="brand-portrait" src="assets/images/misc/portfolio-owner.png" alt="Portfolio owner" width="44" height="44"></a>
-    <p class="header-label">THUMBNAIL DESIGNER<br><span>INDIA / SUNNYTHUMBNAILS</span></p>
+    <p class="header-label" aria-hidden="true"></p>
     <nav class="header-actions" aria-label="Quick links">
       <a class="header-link" href="#worked-with">WORKED WITH <span>↘</span></a>
       <a class="header-link magnetic" href="#contact">CONTACT <span>↗</span></a>
@@ -39,8 +40,8 @@
       </div>
       <div class="hero-content">
         <div class="hero-intro reveal-up">
-          <p class="eyebrow">01 — OPENING ROOM</p>
-          <p class="hero-note">Eye-catching visuals<br>for the next click.</p>
+          <p class="eyebrow" aria-hidden="true"></p>
+          <p class="hero-note" aria-hidden="true"></p>
         </div>
         <div class="mobile-film-strip mobile-film-strip--top" aria-hidden="true"><div class="mobile-film-track"></div></div>
         <div class="hero-title-wrap">
@@ -94,17 +95,27 @@
     <section class="work" id="work">
       <div class="section-head reveal-up">
         <p class="eyebrow">03 — SELECTED WORK</p>
-        <p class="section-caption">The strongest pieces<br>from the archive</p>
+        <p class="section-caption" aria-hidden="true"></p>
       </div>
       <div id="exhibition-list" aria-live="polite"></div>
     </section>
 
-    <section class="more-work" id="more-work">
-      <div class="section-head reveal-up">
-        <p class="eyebrow">04 — MORE WORK</p>
-        <p class="section-caption">A dense scan of the full portfolio</p>
-      </div>
-      <div class="more-work-grid" id="more-work-grid" aria-live="polite"></div>
+    <section class="work-diamond-section" aria-label="View all work">
+      <a href="work.html" class="work-diamond-link" aria-label="Browse all work">
+        <div class="work-diamond" id="work-diamond">
+          <div id="diamond-grid" class="diamond-grid"></div>
+          <svg class="diamond-text-ring" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <path id="diamond-text-path" d="M160,16 a144,144 0 1,1 0,288 a144,144 0 1,1 0,-288"/>
+            </defs>
+            <text fill="rgba(217,255,86,0.7)" font-size="10" font-family="DM Mono, monospace" letter-spacing="0.22em">
+              <textPath href="#diamond-text-path">
+                VIEW ALL WORK ✦ BROWSE PORTFOLIO ✦ VIEW ALL WORK ✦ BROWSE PORTFOLIO ✦
+              </textPath>
+            </text>
+          </svg>
+        </div>
+      </a>
     </section>
 
     <section class="contact" id="contact">
@@ -135,5 +146,6 @@
   <script src="js/data/film-sets.js"></script>
   <script src="js/components/film-carousel.js"></script>
   <script src="js/components/worked-with.js"></script>
+  <script src="js/components/work-diamond.js"></script>
 </body>
 </html>

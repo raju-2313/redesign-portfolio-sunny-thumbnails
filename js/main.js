@@ -12,7 +12,6 @@ const imagePath = (file) => `assets/images/thumbnails/${file}`;
 const featuredFiles = new Set(featuredProjects.map((project) => project.file.toLowerCase()));
 const archiveFiles = (window.WORK_IMAGES || []).filter((file) => !featuredFiles.has(file.toLowerCase()));
 const selectedProjects = featuredProjects.map((project) => ({ ...project, image: imagePath(project.file) }));
-const moreWorkGrid = document.querySelector("#more-work-grid");
 const exhibitionList = document.querySelector("#exhibition-list");
 
 function projectMarkup(project, index) {
@@ -43,8 +42,8 @@ if (exhibitionList) {
     <section class="exhibition-room" data-count="${selectedProjects.length}">
       <div class="exhibition-viewport">
         <header class="chapter-header">
-          <p class="eyebrow">01 — FEATURED PROJECTS</p>
-          <p class="chapter-description">The strongest pieces in a premium exhibition format.</p>
+          <p class="eyebrow" aria-hidden="true"></p>
+          <p class="chapter-description" aria-hidden="true"></p>
         </header>
         <div class="exhibition-stage">
           <div class="exhibition-track">
@@ -72,14 +71,6 @@ if (exhibitionList) {
       </div>
     </section>
   `);
-}
-
-if (moreWorkGrid) {
-  moreWorkGrid.innerHTML = archiveFiles.map((file, index) => `
-    <button class="more-work-item" type="button" data-lightbox="${imagePath(file)}" data-number="${String(index + 1).padStart(2, "0")}" aria-label="Open thumbnail ${String(index + 1).padStart(2, "0")}">
-      <img src="${imagePath(file)}" alt="Sunny thumbnail study ${String(index + 1).padStart(2, "0")}" loading="lazy" decoding="async">
-    </button>
-  `).join("");
 }
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
