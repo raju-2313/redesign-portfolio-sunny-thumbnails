@@ -399,19 +399,11 @@ document.querySelectorAll(".exhibition-room").forEach((room) => {
 });
 
 exhibitionMedia.add("(min-width: 1025px) and (hover: hover) and (prefers-reduced-motion: no-preference)", () => {
-  const cursor = document.querySelector(".cursor");
-  const cursorX = gsap.quickTo(cursor, "left", {duration:.35, ease:"power3"});
-  const cursorY = gsap.quickTo(cursor, "top", {duration:.35, ease:"power3"});
   const listeners = [];
   const listen = (element, event, callback) => {
     element.addEventListener(event, callback);
     listeners.push(() => element.removeEventListener(event, callback));
   };
-  listen(window, "mousemove", (event) => { cursorX(event.clientX); cursorY(event.clientY); });
-  document.querySelectorAll("[data-cursor='view']").forEach((element) => {
-    listen(element, "mouseenter", () => cursor.classList.add("active"));
-    listen(element, "mouseleave", () => cursor.classList.remove("active"));
-  });
   const magneticElements = document.querySelectorAll(".magnetic");
   magneticElements.forEach((element) => {
     listen(element, "mousemove", (event) => {

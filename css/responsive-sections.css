@@ -219,7 +219,6 @@
   .lightbox-frame { max-height: calc(100svh - 160px); }
   .lightbox-close { top: 12px; right: 5vw; min-height: 44px; min-width: 80px; }
   .lightbox-hint { line-height: 1.6; }
-  .cursor { display: none; }
 }
 
 @media (max-width: 600px) {

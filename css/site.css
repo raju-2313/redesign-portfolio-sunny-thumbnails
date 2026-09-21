@@ -1069,34 +1069,17 @@ footer > span:first-child {
 }
 .cursor {
   position: fixed;
-  width: 12px;
-  height: 12px;
-  border: 1px solid var(--accent);
+  width: 9px;
+  height: 9px;
+  background: var(--accent);
   border-radius: 50%;
   pointer-events: none;
   z-index: 50;
   transform: translate(-50%, -50%);
-  transition:
-    width 0.3s,
-    height 0.3s,
-    background 0.3s;
-  display: grid;
-  place-items: center;
-}
-.cursor span {
-  opacity: 0;
-  font:
-    9px "DM Mono",
-    monospace;
-  color: var(--bg);
+  transition: opacity 0.2s ease;
 }
 .cursor.active {
-  width: 62px;
-  height: 62px;
-  background: var(--accent);
-}
-.cursor.active span {
-  opacity: 1;
+  opacity: 0;
 }
 .magnetic {
   display: inline-block;
@@ -1104,6 +1087,12 @@ footer > span:first-child {
 .image-reveal {
   clip-path: inset(0 0 100% 0);
 }
+@media (hover: none) {
+  .cursor {
+    display: none;
+  }
+}
+
 @media (max-width: 700px) {
   .site-header {
     height: 72px;
