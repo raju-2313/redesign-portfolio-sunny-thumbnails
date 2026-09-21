@@ -414,7 +414,6 @@ exhibitionMedia.add("(min-width: 1025px) and (hover: hover) and (prefers-reduced
   });
   return () => {
     listeners.forEach((remove) => remove());
-    cursor.classList.remove("active");
     gsap.killTweensOf(magneticElements);
     gsap.set(magneticElements, {clearProps:"transform"});
   };
