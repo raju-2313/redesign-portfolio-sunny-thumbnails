@@ -1,6 +1,7 @@
 # Upload only the static website; maintenance files stay in GitHub.
 /*
 !/index.html
+!/work.html
 !/assets/
 !/css/
 !/js/
