@@ -249,6 +249,14 @@ a {
 .contact {
   padding: 18vh 4vw 12vh;
 }
+.more-work-title {
+  margin: 18px 0 0;
+  font-family: "Instrument Sans", Manrope, Arial, sans-serif;
+  font-size: clamp(2.5rem, 5vw, 5.5rem);
+  font-weight: 500;
+  letter-spacing: -0.06em;
+  line-height: 0.95;
+}
 .section-head {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -262,6 +270,50 @@ a {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
+  transition: opacity 0.18s ease;
+}
+.more-work-grid.is-filtering {
+  opacity: 0.35;
+}
+.work-filters {
+  display: flex;
+  gap: 10px;
+  margin: -5vh 0 28px;
+  overflow-x: auto;
+  padding: 4px 0 12px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) transparent;
+}
+.work-filter {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  gap: 9px;
+  padding: 9px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font: 500 10px/1 "DM Mono", monospace;
+  letter-spacing: 0.08em;
+  transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+.work-filter-count {
+  color: var(--accent);
+  font-size: 9px;
+}
+.work-filter:hover,
+.work-filter:focus-visible,
+.work-filter.is-active {
+  border-color: var(--accent);
+  color: var(--bg);
+  background: var(--accent);
+}
+.work-filter:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 3px;
 }
 .more-work-item {
   appearance: none;
@@ -1139,6 +1191,12 @@ footer > span:first-child {
     .more-work-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 10px;
+    }
+    .more-work-title {
+      font-size: clamp(2.75rem, 13vw, 5rem);
+    }
+    .work-filters {
+      margin-top: -3vh;
     }
   .section-head {
     margin-bottom: 8vh;
