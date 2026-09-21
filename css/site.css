@@ -1296,9 +1296,6 @@ footer > span:first-child {
     margin-top: 40px;
     gap: 22px;
   }
-  .cursor {
-    display: none;
-  }
   footer {
     padding: 18px 5vw;
     font-size: 8px;
