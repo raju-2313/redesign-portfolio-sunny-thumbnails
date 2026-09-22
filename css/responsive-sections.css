@@ -19,6 +19,7 @@
     padding: clamp(64px, 10svh, 112px) 5vw;
     min-width: 0;
   }
+  .work { padding-top: clamp(52px, 7svh, 80px); }
   .about { min-height: 0; }
   .more-work-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -53,6 +54,7 @@
     overflow-wrap: break-word;
   }
   .contact-bottom { gap: 24px; align-items: center; }
+  .contact-bottom p { font-size: 14px; }
   .socials { gap: 20px; flex-wrap: wrap; }
   .socials a, footer a {
     display: inline-flex;
@@ -78,7 +80,7 @@
     min-height: 0;
     padding-top: 12px;
   }
-  .exhibition-label { font-size: 10px; line-height: 1.45; }
+  .exhibition-label { font-size: 11px; line-height: 1.45; }
   .exhibition-value { font-size: 13px; line-height: 1.4; overflow-wrap: anywhere; }
   .exhibition-info .project-cta {
     grid-column: 1 / -1;
@@ -88,7 +90,9 @@
     align-items: center;
     min-height: 44px;
     margin: 0;
-    padding: 5px 0;
+    padding: 8px 14px;
+    border: 1px solid var(--accent);
+    font-size: 12px;
   }
   .exhibition-frame { border-radius: 12px; }
   .exhibition-frame:focus-visible,

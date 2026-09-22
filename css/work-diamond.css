@@ -1,6 +1,6 @@
 /* ── Work Diamond Section ── */
 .work-diamond-section {
-  padding: 14vh 4vw 16vh;
+  padding: 9vh 4vw 10vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -142,6 +142,7 @@
   pointer-events: none;
   animation: text-ring-spin 28s linear infinite;
   z-index: 5;
+  display: none;
 }
 
 @keyframes text-ring-spin {
@@ -152,7 +153,7 @@
 /* ── Responsive ── */
 @media (max-width: 700px) {
   .work-diamond-section {
-    padding: 10vh 5vw 12vh;
+    padding: 7vh 5vw 8vh;
   }
 
   .work-diamond {

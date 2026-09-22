@@ -60,6 +60,9 @@ a {
   color: antiquewhite;
 }
 .brand {
+  justify-self: start;
+  display: flex;
+  align-items: center;
   font-size: 25px;
   font-weight: 800;
   letter-spacing: -0.08em;
@@ -101,6 +104,7 @@ a {
   overflow: hidden;
 }
 .hero-content {
+  position: relative;
   width: min(92vw, 1600px);
   height: 100%;
   margin: 0 auto;
@@ -208,7 +212,12 @@ a {
   margin: 0;
 }
 .scroll-cue {
+  position: absolute;
+  left: 50%;
+  bottom: max(24px, 5vh);
+  transform: translateX(-50%);
   justify-self: center;
+  white-space: nowrap;
   color: var(--ink);
   display: flex;
   gap: 20px;
@@ -221,6 +230,7 @@ a {
 }
 .hero-year {
   justify-self: end;
+  font-size: 12px;
 }
 .marquee {
   overflow: hidden;
@@ -248,6 +258,10 @@ a {
 .more-work,
 .contact {
   padding: 18vh 4vw 12vh;
+}
+.work {
+  overflow-x: clip;
+  padding-top: clamp(7rem, 11vh, 10rem);
 }
 .more-work-title {
   margin: 18px 0 0;
@@ -634,6 +648,8 @@ a {
 }
 .exhibition-room {
   position: relative;
+  max-width: 100%;
+  overflow-x: clip;
 }
 .chapter-break {
   display: flex;
@@ -880,7 +896,7 @@ a {
 .exhibition-label {
   color: var(--muted);
   font:
-    10px "DM Mono",
+    11px "DM Mono",
     monospace;
   letter-spacing: 0.1em;
 }
@@ -891,9 +907,13 @@ a {
 }
 .exhibition-info .project-cta {
   align-self: end;
-  justify-self: end;
-  grid-column: 2;
-  grid-row: 1 / span 3;
+  justify-self: start;
+  grid-column: 1 / -1;
+  grid-row: auto;
+  margin-top: 8px;
+  padding: 8px 14px;
+  border: 1px solid var(--accent);
+  font-size: 12px;
 }
 .exhibition-status {
   position: absolute;
@@ -1035,7 +1055,7 @@ a {
 }
 .about-title em,
 .contact-title em {
-  font-family: Georgia, serif;
+  font-family: "Instrument Sans", Manrope, sans-serif;
   font-weight: 400;
   letter-spacing: -0.08em;
   color: var(--accent);
@@ -1076,14 +1096,14 @@ a {
   color: var(--muted);
 }
 .contact {
-  min-height: 85vh;
+  min-height: 72vh;
   border-top: 1px solid var(--line);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 .contact-title {
-  margin-top: 9vh;
+  margin-top: 5vh;
   font-size: clamp(4rem, 10.5vw, 12rem);
 }
 .contact-bottom {
@@ -1099,6 +1119,7 @@ a {
   color: var(--muted);
 }
 .contact-bottom p {
+  font-size: 14px;
   margin: 0;
   line-height: 1.5;
 }
@@ -1106,6 +1127,19 @@ a {
   display: flex;
   gap: 35px;
   color: var(--ink);
+}
+.contact-cta {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1px solid var(--accent);
+  color: var(--ink);
+  font-size: 12px;
+}
+.contact-cta:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 footer {
   border-top: 1px solid var(--line);
@@ -1325,11 +1359,11 @@ footer > span:first-child {
     margin-top: 4rem;
   }
   .contact {
-    min-height: 78vh;
+    min-height: 72vh;
   }
   .contact-title {
     font-size: 16vw;
-    margin-top: 8vh;
+    margin-top: 4vh;
   }
   .contact-bottom {
     display: block;

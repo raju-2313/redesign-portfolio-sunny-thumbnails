@@ -39,8 +39,8 @@
   z-index: 3;
   left: var(--film-center-x);
   top: var(--film-center-y);
-  width: var(--film-control-size, 104px);
-  height: var(--film-control-size, 104px);
+  width: var(--film-control-size, 76px);
+  height: var(--film-control-size, 76px);
   transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;

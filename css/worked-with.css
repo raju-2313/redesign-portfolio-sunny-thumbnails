@@ -15,7 +15,7 @@
   outline-offset: 4px;
 }
 .worked-with {
-  padding: clamp(64px, 9vw, 128px) 0;
+  padding: clamp(52px, 6vw, 88px) 0;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   scroll-margin-top: 24px;
@@ -28,6 +28,34 @@
   align-items: flex-end;
   gap: 24px;
 }
+.creator-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.creator-prev,
+.creator-next {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  font-size: 20px;
+}
+.creator-prev:hover,
+.creator-next:hover,
+.creator-prev:focus-visible,
+.creator-next:focus-visible {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.creator-prev:focus-visible,
+.creator-next:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
 .worked-with-title {
   margin: 14px 0 0;
   font-family: "Instrument Sans", Manrope, Arial, sans-serif;
@@ -37,15 +65,14 @@
   line-height: 1;
 }
 .creator-toggle {
-  padding: 10px 0;
-  border: 0;
-  border-bottom: 1px solid var(--line);
-  background: none;
-  color: var(--muted);
-  font: 10px "DM Mono", monospace;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  background: rgba(233, 229, 220, 0.04);
+  color: var(--ink);
+  font: 11px "DM Mono", monospace;
   letter-spacing: 0.08em;
   cursor: pointer;
-  min-height: 44px;
 }
 .creator-toggle:hover { color: var(--ink); }
 .creator-toggle:focus-visible {
@@ -53,6 +80,7 @@
   outline-offset: 4px;
 }
 .creator-window {
+  max-width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
   scrollbar-width: thin;
@@ -62,7 +90,8 @@
 }
 .creator-track {
   display: flex;
-  width: max-content;
+  width: 100%;
+  min-width: 0;
 }
 .creator-set {
   display: flex;
@@ -114,7 +143,7 @@
 .creator-meta {
   display: block;
   margin-top: 9px;
-  font: 9px "DM Mono", monospace;
+  font: 11px "DM Mono", monospace;
   letter-spacing: 0.1em;
   color: var(--muted);
 }
@@ -130,7 +159,7 @@
 .worked-with-note {
   margin: 22px 4vw 0;
   color: var(--muted);
-  font: 9px "DM Mono", monospace;
+  font: 12px "DM Mono", monospace;
   letter-spacing: 0.1em;
 }
 @media (max-width: 1024px) {
@@ -149,5 +178,6 @@
   .creator-set li { width: 270px; }
   .creator-avatar { flex-basis: 56px; width: 56px; height: 56px; }
   .creator-link { min-height: 88px; }
-  .creator-toggle { font-size: 9px; }
+  .creator-toggle { font-size: 11px; }
+  .creator-controls { gap: 4px; }
 }

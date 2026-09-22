@@ -6,6 +6,8 @@
   const track = section.querySelector(".creator-track");
   const original = section.querySelector(".creator-set");
   const toggle = section.querySelector(".creator-toggle");
+  const previous = section.querySelector(".creator-prev");
+  const next = section.querySelector(".creator-next");
   const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
   original.querySelectorAll("img").forEach((image) => {
@@ -32,7 +34,7 @@
 
   function update() {
     const shouldBrowse = motion.matches || paused || focused;
-    toggle.hidden = motion.matches;
+    toggle.hidden = false;
     toggle.textContent = paused ? "RESUME ↗" : "PAUSE Ⅱ";
     toggle.setAttribute("aria-label", paused ? "Resume creator carousel" : "Pause creator carousel");
     section.classList.toggle("is-animated", !shouldBrowse);
@@ -85,6 +87,16 @@
 
   toggle.addEventListener("click", () => {
     paused = !paused;
+    update();
+  });
+  previous.addEventListener("click", () => {
+    viewport.scrollBy({ left: -viewport.clientWidth * 0.8, behavior: "smooth" });
+    paused = true;
+    update();
+  });
+  next.addEventListener("click", () => {
+    viewport.scrollBy({ left: viewport.clientWidth * 0.8, behavior: "smooth" });
+    paused = true;
     update();
   });
   viewport.addEventListener("pointerenter", (event) => {

@@ -21,7 +21,7 @@
     <a class="brand" href="#" aria-label="Sunny Thumbnails home"><img class="brand-portrait" src="assets/images/misc/portfolio-owner.png" alt="Portfolio owner" width="44" height="44"></a>
     <p class="header-label" aria-hidden="true"></p>
     <nav class="header-actions" aria-label="Quick links">
-      <a class="header-link" href="#worked-with">WORKED WITH <span>↘</span></a>
+      <a class="header-link" href="#worked-with">WORKED WITH <span aria-hidden="true">↗</span></a>
       <a class="header-link magnetic" href="#contact">CONTACT <span>↗</span></a>
     </nav>
   </header>
@@ -33,7 +33,7 @@
         <span class="film-status" role="status" aria-live="polite"></span>
         <button class="film-reset" type="button" aria-label="Show next film set">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7a8 8 0 1 0 0 10M20 3v5h-5"/></svg>
-          <span>RESET<br>FILM</span>
+          <span>NEXT<br>FILM</span>
         </button>
       </div>
       <div class="hero-content">
@@ -52,9 +52,9 @@
         <div class="mobile-film-strip mobile-film-strip--bottom" aria-hidden="true"><div class="mobile-film-track"></div></div>
         <div class="mobile-film-reset-slot" aria-hidden="true"></div>
         <div class="hero-footer reveal-up">
-          <p>THUMBNAILS<br>&amp; BANNERS</p>
-          <a class="scroll-cue" href="#worked-with"><span>SCROLL TO EXPLORE</span><b>↓</b></a>
-          <p class="hero-year">SUNNYTHUMBNAILS — ONLINE</p>
+          <p>Thumbnails<br>&amp; banners</p>
+          <a class="scroll-cue" href="#worked-with"><span>Scroll to explore</span><b aria-hidden="true">↓</b></a>
+          <p class="hero-year">Sunnythumbnails — online</p>
         </div>
       </div>
     </section>
@@ -65,7 +65,11 @@
           <p class="eyebrow">02 — WORKED WITH</p>
           <h2 class="worked-with-title" id="worked-with-title">CREATORS</h2>
         </div>
-        <button class="creator-toggle" type="button" aria-label="Pause creator carousel" aria-controls="creator-window" hidden>PAUSE Ⅱ</button>
+        <div class="creator-controls">
+          <button class="creator-prev" type="button" aria-label="Show previous creators" aria-controls="creator-window">←</button>
+          <button class="creator-toggle" type="button" aria-label="Pause creator carousel" aria-controls="creator-window" hidden>PAUSE Ⅱ</button>
+          <button class="creator-next" type="button" aria-label="Show next creators" aria-controls="creator-window">→</button>
+        </div>
       </div>
       <div class="creator-window" id="creator-window">
         <div class="creator-track">
@@ -87,7 +91,7 @@
           </ul>
         </div>
       </div>
-      <p class="worked-with-note">14 CREATORS — INDIVIDUAL VISIONS. SHARED TRUST.</p>
+      <p class="worked-with-note">14 creators — individual visions. Shared trust.</p>
     </section>
 
     <section class="work" id="work">
@@ -114,7 +118,7 @@
           </svg>
         </div>
         <span class="work-diamond-cta">
-          <span class="work-diamond-cta-label">VIEW THE FULL WORK</span>
+          <span class="work-diamond-cta-label">View all work</span>
           <span class="work-diamond-cta-arrow" aria-hidden="true">↗</span>
         </span>
       </a>
@@ -125,7 +129,7 @@
       <h2 class="contact-title reveal-up">make something<br><em>worth clicking.</em></h2>
       <div class="contact-bottom reveal-up">
         <p>Have a video that needs<br>the right first impression?</p>
-        <div class="socials"><a class="magnetic" href="https://twitter.com/Sunnythumbnails" target="_blank" rel="noreferrer">TWITTER <span>↗</span></a><a class="magnetic" href="https://www.instagram.com/sunnythumbnails/" target="_blank" rel="noreferrer">INSTAGRAM <span>↗</span></a></div>
+        <div class="socials"><a class="contact-cta magnetic" href="https://www.instagram.com/sunnythumbnails/" target="_blank" rel="noopener noreferrer">Message Sunny on Instagram <span aria-hidden="true">↗</span></a><a class="magnetic" href="https://twitter.com/Sunnythumbnails" target="_blank" rel="noopener noreferrer">Twitter <span aria-hidden="true">↗</span></a></div>
       </div>
     </section>
   </main>

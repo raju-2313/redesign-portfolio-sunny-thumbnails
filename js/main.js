@@ -16,13 +16,13 @@ const exhibitionList = document.querySelector("#exhibition-list");
 
 function projectMarkup(project, index) {
   const featuredMarkup = `
-    <span class="exhibition-label">VIDEO TITLE</span>
+    <span class="exhibition-label">Video title</span>
     <p class="exhibition-value">${project.title}</p>
-    <span class="exhibition-label">CREATOR / CHANNEL</span>
+    <span class="exhibition-label">Creator / channel</span>
     <p class="exhibition-value">${project.channel}</p>
-    <span class="exhibition-label">VIEWS</span>
+    <span class="exhibition-label">Views</span>
     <p class="exhibition-value">${project.views}</p>
-    <a class="project-cta magnetic" href="${project.videoUrl}" target="_blank" rel="noreferrer">WATCH VIDEO <span>↗</span></a>
+    <a class="project-cta magnetic" href="${project.videoUrl}" target="_blank" rel="noopener noreferrer">Watch video <span aria-hidden="true">↗</span></a>
   `;
   return `
     <article class="exhibition-project" data-cursor="view" data-project-index="${index}">
