@@ -39,21 +39,21 @@
   z-index: 3;
   left: var(--film-center-x);
   top: var(--film-center-y);
-  width: clamp(108px, 12vw, 132px);
-  height: 48px;
+  width: clamp(72px, 8vw, 96px);
+  height: clamp(72px, 8vw, 96px);
   transform: translate(-50%, -50%);
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 9px;
-  padding: 8px 14px;
+  gap: 4px;
+  padding: 8px;
   border: 1px solid var(--accent);
   border-radius: 999px;
   background: rgba(17, 18, 15, .92);
   color: #eeeae0;
-  font: 500 10px/1 'DM Mono', monospace;
-  letter-spacing: .08em;
+  font: 500 9px/1.1 'DM Mono', monospace;
+  letter-spacing: .07em;
   text-transform: uppercase;
   cursor: pointer;
   pointer-events: auto;
@@ -80,7 +80,7 @@
 }
 .circular-film-carousel .film-reset b {
   color: var(--accent);
-  font: 16px/1 Arial, sans-serif;
+  font: 14px/1 Arial, sans-serif;
   transition: transform .2s, color .2s;
 }
 .circular-film-carousel .film-reset:hover b,
@@ -106,16 +106,16 @@
     width: 90%;
   }
   .circular-film-carousel .film-reset {
-    width: 112px;
-    height: 46px;
-    gap: 7px;
-    padding: 8px 12px;
-    font-size: 9px;
+    width: 68px;
+    height: 68px;
+    gap: 3px;
+    padding: 7px;
+    font-size: 8px;
   }
   .circular-film-carousel .film-reset svg {
-    flex-basis: 18px;
-    width: 18px;
-    height: 18px;
+    flex-basis: 17px;
+    width: 17px;
+    height: 17px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
