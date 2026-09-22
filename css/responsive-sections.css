@@ -56,6 +56,7 @@
   .contact-bottom { gap: 24px; align-items: center; }
   .contact-bottom p { font-size: 14px; }
   .socials { gap: 20px; flex-wrap: wrap; }
+  .contact-form { width: 100%; margin-top: 48px; }
   .socials a, footer a {
     display: inline-flex;
     align-items: center;
@@ -235,6 +236,8 @@
   .section-caption { font-size: 11px; }
   .contact-bottom { display: block; }
   .socials { margin-top: 20px; }
+  .contact-form-fields { grid-template-columns: 1fr; }
+  .contact-form { margin-top: 48px; }
   footer > span:nth-child(2) { font-size: 9px; }
   footer a { flex-basis: 100%; margin: 0; }
 }
