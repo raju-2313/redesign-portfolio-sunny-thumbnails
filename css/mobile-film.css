@@ -89,14 +89,17 @@
     display: none;
   }
   .circular-film-carousel .film-reset {
-    gap: 5px;
-    padding: 6px;
-    font-size: 10px;
-    line-height: 1.25;
+    width: 112px;
+    height: 46px;
+    gap: 7px;
+    padding: 8px 12px;
+    font-size: 9px;
+    line-height: 1;
   }
   .circular-film-carousel .film-reset svg {
-    width: 24px;
-    height: 24px;
+    flex-basis: 18px;
+    width: 18px;
+    height: 18px;
   }
   .hero-footer {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);

@@ -39,21 +39,22 @@
   z-index: 3;
   left: var(--film-center-x);
   top: var(--film-center-y);
-  width: var(--film-control-size, 76px);
-  height: var(--film-control-size, 76px);
+  width: clamp(108px, 12vw, 132px);
+  height: 48px;
   transform: translate(-50%, -50%);
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  padding: 6px;
-  border: 1px solid rgba(218, 224, 187, .38);
-  border-radius: 50%;
-  background: rgba(17, 18, 15, .9);
+  gap: 9px;
+  padding: 8px 14px;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  background: rgba(17, 18, 15, .92);
   color: #eeeae0;
-  font: 500 10px/1.25 'DM Mono', monospace;
-  letter-spacing: .12em;
+  font: 500 10px/1 'DM Mono', monospace;
+  letter-spacing: .08em;
+  text-transform: uppercase;
   cursor: pointer;
   pointer-events: auto;
   transition: border-color .2s, box-shadow .2s;
@@ -68,13 +69,24 @@
   stroke: var(--bg);
 }
 .circular-film-carousel .film-reset svg {
-  width: 25px;
-  height: 25px;
+  flex: 0 0 19px;
+  width: 19px;
+  height: 19px;
   fill: none;
   stroke: #dcf36a;
   stroke-width: 1.4;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+.circular-film-carousel .film-reset b {
+  color: var(--accent);
+  font: 16px/1 Arial, sans-serif;
+  transition: transform .2s, color .2s;
+}
+.circular-film-carousel .film-reset:hover b,
+.circular-film-carousel .film-reset:focus-visible b {
+  color: var(--bg);
+  transform: translate(2px, -2px);
 }
 .circular-film-carousel .film-reset:hover,
 .circular-film-carousel .film-reset:focus-visible {
@@ -94,15 +106,16 @@
     width: 90%;
   }
   .circular-film-carousel .film-reset {
-    gap: 3px;
-    padding: 4px;
-    font-size: 8px;
-    line-height: 1.1;
-    letter-spacing: .07em;
+    width: 112px;
+    height: 46px;
+    gap: 7px;
+    padding: 8px 12px;
+    font-size: 9px;
   }
   .circular-film-carousel .film-reset svg {
-    width: 16px;
-    height: 16px;
+    flex-basis: 18px;
+    width: 18px;
+    height: 18px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
