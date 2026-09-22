@@ -58,6 +58,15 @@
   pointer-events: auto;
   transition: border-color .2s, box-shadow .2s;
 }
+.circular-film-carousel .film-reset:hover,
+.circular-film-carousel .film-reset:focus-visible {
+  background: var(--accent);
+  color: var(--bg);
+}
+.circular-film-carousel .film-reset:hover svg,
+.circular-film-carousel .film-reset:focus-visible svg {
+  stroke: var(--bg);
+}
 .circular-film-carousel .film-reset svg {
   width: 25px;
   height: 25px;
