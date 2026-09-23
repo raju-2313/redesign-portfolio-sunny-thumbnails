@@ -255,7 +255,6 @@ exhibitionMedia.add({
     }
 
     const mainScale = (item) => {
-      if (!compact) return 1;
       const availableHeight = Math.max(1, stage.clientHeight - 24);
       return Math.min(1, availableHeight / Math.max(1, item.offsetHeight));
     };
@@ -297,7 +296,7 @@ exhibitionMedia.add({
       }
     });
 
-    if (compact) timeline.set(items[0], {scale:() => mainScale(items[0])}, 0);
+    timeline.set(items[0], {scale:() => mainScale(items[0])}, 0);
     timeline.to(chapterHeader, {opacity:.35, duration:1}, 0);
     items.forEach((item, index) => {
       if (index >= count - 1) return;
