@@ -25,7 +25,7 @@ A static website with one entry point: `index.html`. No bundler, compilation, np
 
 ```text
 index.html
-assets\images\thumbnails\          All 57 original JPEG assets
+assets\images\thumbnails\          All 57 original JPEG sources and WebP delivery assets
 assets\images\misc\portfolio-owner.png  Header portrait, separate from film thumbnails
 assets\images\creators\           14 verified channel avatars for WORKED WITH
 css\
@@ -108,6 +108,7 @@ Syntax check: `node --check .\js\components\worked-with.js`. Browser checks shou
 - `js/main.js` contains the four featured projects and their existing YouTube URLs. Other projects come from the filename manifest. The research CSVs do **not** control live video links.
 - Both JavaScript controllers resolve image paths relative to `index.html`, under `assets/images/thumbnails/`. This also supports hosting the whole site under a subdirectory.
 - All 57 filenames and image bytes are retained. `84aa289d.jpg` and `b1d62ce1.jpg` are byte-identical but separately referenced; do not deduplicate them without an explicit content change.
+- Browser-facing thumbnail URLs use matching `.webp` files to reduce transfer size on slower connections; the original JPEG files remain as source assets.
 - `js/data/film-sets.js` uses exhibition order, not the directory's display order. It must run after exhibition rendering.
 
 If thumbnail files are deliberately added or renamed, regenerate the manifest from the project root:

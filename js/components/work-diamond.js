@@ -22,7 +22,9 @@
   var rowCounts = isMobile ? [2, 3, 2] : [2, 3, 4, 3, 2];
 
   var imgIdx = 0;
-  var IMG_BASE = "assets/images/thumbnails/";
+  var imagePath = function (file) {
+    return "assets/images/thumbnails/" + file.replace(/\.(?:jpe?g)$/i, ".webp");
+  };
 
   // Generate grid
   rowCounts.forEach(function(count) {
@@ -35,7 +37,7 @@
       
       // Select image and loop if necessary
       var imgFile = allFiles[imgIdx % allFiles.length];
-      tileEl.style.backgroundImage = "url(" + IMG_BASE + imgFile + ")";
+      tileEl.style.backgroundImage = "url(" + imagePath(imgFile) + ")";
       imgIdx++;
 
       // Calculate 3D position
@@ -100,7 +102,7 @@
           var tileEl = document.createElement("div");
           tileEl.className = "diamond-tile";
           var imgFile = allFiles[imgIdx % allFiles.length];
-          tileEl.style.backgroundImage = "url(" + IMG_BASE + imgFile + ")";
+          tileEl.style.backgroundImage = "url(" + imagePath(imgFile) + ")";
           imgIdx++;
           var colIndex = k - (count - 1) / 2;
           var angleY = colIndex * 14;

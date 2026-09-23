@@ -8,7 +8,7 @@ const featuredProjects = [
   {number:"04", file:"5977fc59.jpg", title:"Being the First Person at Every Water Park", channel:"zooder loopers", views:"107.6K views", description:"A water-park premise staged with a sleeping-bag subject, a large slide, and security-guard reaction figures.", process:"The unusual first-person premise is communicated through the empty park, sleeping subject, and oversized water-park landmark.", videoUrl:"https://www.youtube.com/watch?v=DzScA437Des"}
 ];
 
-const imagePath = (file) => `assets/images/thumbnails/${file}`;
+const imagePath = (file) => `assets/images/thumbnails/${file.replace(/\.(?:jpe?g)$/i, ".webp")}`;
 const featuredFiles = new Set(featuredProjects.map((project) => project.file.toLowerCase()));
 const archiveFiles = (window.WORK_IMAGES || []).filter((file) => !featuredFiles.has(file.toLowerCase()));
 const selectedProjects = featuredProjects.map((project) => ({ ...project, image: imagePath(project.file) }));
@@ -28,7 +28,7 @@ function projectMarkup(project, index) {
       <div class="exhibition-project-number">PROJECT ${project.number}</div>
       <div class="exhibition-artwork">
         <div class="exhibition-frame thumbnail-frame" data-lightbox="${project.image}" data-number="${project.number}" data-cursor="view" role="button" tabindex="0" aria-label="Open Project ${project.number}">
-          <img src="${project.image}" alt="Sunny thumbnail project ${project.number} — ${project.title}" loading="eager" decoding="async">
+          <img src="${project.image}" alt="Sunny thumbnail project ${project.number} — ${project.title}" loading="lazy" decoding="async">
         </div>
         <div class="exhibition-details">
           <div class="exhibition-info">${featuredMarkup}</div>

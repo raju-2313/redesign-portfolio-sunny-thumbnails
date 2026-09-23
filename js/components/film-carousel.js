@@ -54,6 +54,8 @@
     strip.querySelector(".mobile-film-track"),
   );
   const resetSlot = hero.querySelector(".mobile-film-reset-slot");
+  const imagePath = (file) =>
+    `assets/images/thumbnails/${encodeURIComponent(file.replace(/\.(?:jpe?g)$/i, ".webp"))}`;
   const mobileProgress = [0, 0];
   const mobileSpeeds = [36, 30];
   let mobileLayout = window.matchMedia("(max-width: 1024px)").matches;
@@ -69,7 +71,7 @@
       rows.forEach((row, index) => {
         const images = [...row, ...row].map((file) => {
           const image = document.createElement("img");
-          image.src = `assets/images/thumbnails/${encodeURIComponent(file)}`;
+          image.src = imagePath(file);
           image.alt = "";
           image.width = 160;
           image.height = 90;
@@ -183,7 +185,7 @@
       entry.failed = true;
       throw error;
     });
-    image.src = `assets/images/thumbnails/${encodeURIComponent(entry.file)}`;
+    image.src = imagePath(entry.file);
     return entry.ready;
   }
 
@@ -620,5 +622,11 @@
     );
   updateSetState();
   prepareSet(activeSetIndex).catch(() => {});
-  prepareSet((activeSetIndex + 1) % filmSets.length).catch(() => {});
+  const warmNextSet = () =>
+    prepareSet((activeSetIndex + 1) % filmSets.length).catch(() => {});
+  if ("requestIdleCallback" in window) {
+    window.requestIdleCallback(warmNextSet, {timeout: 2500});
+  } else {
+    window.setTimeout(warmNextSet, 1200);
+  }
 })();

@@ -1,6 +1,6 @@
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
-const imagePath = (file) => `assets/images/thumbnails/${file}`;
+const imagePath = (file) => `assets/images/thumbnails/${file.replace(/\.(?:jpe?g)$/i, ".webp")}`;
 const catalog = window.WORK_CATALOG || [];
 const categories = window.WORK_CATEGORIES || [];
 const moreWorkGrid = document.querySelector("#more-work-grid");
