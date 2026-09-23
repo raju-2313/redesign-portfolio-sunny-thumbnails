@@ -22,7 +22,6 @@ function projectMarkup(project, index) {
     <p class="exhibition-value">${project.channel}</p>
     <span class="exhibition-label">Views</span>
     <p class="exhibition-value">${project.views}</p>
-    <a class="project-cta magnetic" href="${project.videoUrl}" target="_blank" rel="noopener noreferrer">Watch video <span aria-hidden="true">↗</span></a>
   `;
   return `
     <article class="exhibition-project" data-cursor="view" data-project-index="${index}">
@@ -31,7 +30,10 @@ function projectMarkup(project, index) {
         <div class="exhibition-frame thumbnail-frame" data-lightbox="${project.image}" data-number="${project.number}" data-cursor="view" role="button" tabindex="0" aria-label="Open Project ${project.number}">
           <img src="${project.image}" alt="Sunny thumbnail project ${project.number} — ${project.title}" loading="eager" decoding="async">
         </div>
-        <div class="exhibition-info">${featuredMarkup}</div>
+        <div class="exhibition-details">
+          <div class="exhibition-info">${featuredMarkup}</div>
+          <a class="project-cta magnetic" href="${project.videoUrl}" target="_blank" rel="noopener noreferrer">Watch video <span aria-hidden="true">↗</span></a>
+        </div>
       </div>
     </article>
   `;
@@ -252,7 +254,11 @@ exhibitionMedia.add({
       return;
     }
 
-    const mainScale = (item) => compact ? Math.min(1, stage.clientHeight / Math.max(1, item.offsetHeight)) : 1;
+    const mainScale = (item) => {
+      if (!compact) return 1;
+      const availableHeight = Math.max(1, stage.clientHeight - 24);
+      return Math.min(1, availableHeight / Math.max(1, item.offsetHeight));
+    };
     const railTransform = (item, marker) => {
       const frame = item.querySelector(".exhibition-frame");
       const trackRect = track.getBoundingClientRect();
@@ -296,8 +302,8 @@ exhibitionMedia.add({
     items.forEach((item, index) => {
       if (index >= count - 1) return;
       const next = items[index + 1];
-      const outgoingInfo = item.querySelectorAll(".exhibition-project-number, .exhibition-info");
-      const incomingInfo = next.querySelectorAll(".exhibition-project-number, .exhibition-info");
+      const outgoingInfo = item.querySelectorAll(".exhibition-project-number, .exhibition-details");
+      const incomingInfo = next.querySelectorAll(".exhibition-project-number, .exhibition-details");
 
       timeline
         .set(next, {x:() => stage.clientWidth * .55, autoAlpha:0, scale:.58, z:-90, rotateY:5, rotateX:1}, index)

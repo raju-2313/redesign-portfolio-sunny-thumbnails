@@ -867,6 +867,9 @@ a {
   transform-origin: center center;
   will-change: transform, opacity;
 }
+.exhibition-artwork {
+  min-width: 0;
+}
 .exhibition-project-number {
   margin-bottom: 12px;
   color: var(--accent);
@@ -902,6 +905,15 @@ a {
   min-height: 82px;
   padding-top: 16px;
 }
+.exhibition-details {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+.exhibition-details .exhibition-info {
+  flex: 1 1 auto;
+  min-width: 0;
+}
 .exhibition-label {
   color: var(--muted);
   font:
@@ -914,12 +926,14 @@ a {
   font-size: 13px;
   line-height: 1.45;
 }
-.exhibition-info .project-cta {
-  position: absolute;
-  left: 50%;
-  top: 16px;
-  transform: translateX(8px);
-  z-index: 1;
+.exhibition-details .project-cta {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  flex: 0 0 auto;
+  margin-top: 16px;
+  background: var(--bg);
+  transform: translateZ(1px);
   font-size: 12px;
 }
 .exhibition-status {
@@ -1469,7 +1483,10 @@ footer > span:first-child {
     grid-template-columns: 1fr;
     gap: 8px;
   }
-  .exhibition-info .project-cta {
+  .exhibition-details {
+    display: block;
+  }
+  .exhibition-details .project-cta {
     grid-column: auto;
     grid-row: auto;
     justify-self: start;
@@ -1571,7 +1588,7 @@ footer > span:first-child {
       grid-template-columns: 1fr;
       gap: 8px;
     }
-    .exhibition-info .project-cta {
+    .exhibition-details .project-cta {
       grid-column: auto;
       grid-row: auto;
       justify-self: start;
